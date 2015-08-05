@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/custom_wizard_refill"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|center" 
+        android:orientation="vertical" >
+		
+		<TextView
+            android:id="@+id/readme_agent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0.0dip"
+            android:layout_marginTop="10.0dip"
+            android:text="若您使用有任何問題，請聯絡您的營運商\n營  運  商 : EZCall\n連絡電話 : 0123456789\n帳　　號 : xxxxxxxxx\n=============================="
+            android:textSize="16.0dip" />
+
+        <!-- <Button
+            android:id="@+id/readme_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5.0dip"
+            android:text="EZCall使用說明" /> -->
+
+        <TextView
+            android:id="@+id/readme_atm_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0.0dip"
+            android:layout_marginTop="10.0dip"
+            android:text="==============================\nATM充值\n銀行代碼 : xxxxx\n轉帳帳號 : xxxxx\n==============================\n"
+            android:textSize="16.0dip" />
+        
+        <TextView
+            android:id="@+id/refill_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0.0dip"
+            android:text="請輸入充值序號(12碼)\n若您不知道序號，請聯絡您的營運商\n"
+            android:textSize="16.0dip" />
+        
+        <LinearLayout
+            android:id="@+id/refill_code_row"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+    		<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1.0dip"
+                android:text="系統碼[" />
+    		<TextView android:id="@+id/system_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1.0dip" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1.0dip"
+                android:text="]+序號" />
+            <EditText
+                android:id="@+id/serial_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1.0dip"
+                android:ems="12"
+                android:inputType="phone"
+                android:maxLength="12" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
