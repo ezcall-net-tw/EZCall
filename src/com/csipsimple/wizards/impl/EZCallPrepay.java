@@ -440,8 +440,8 @@ public class EZCallPrepay extends BaseImplementation {
 		// As they activate it by default in their forked app.
 
 		// For Narrowband
-//		prefs.setCodecPriority("G729/8000/1", SipConfigManager.CODEC_NB, "0");
-//		prefs.setCodecPriority("iLBC/8000/1", SipConfigManager.CODEC_NB, "0");
+//		prefs.setCodecPriority("G729/8000/1", SipConfigManager.CODEC_NB, "100");
+		prefs.setCodecPriority("iLBC/8000/1", SipConfigManager.CODEC_NB, "90");
 		prefs.setCodecPriority("PCMU/8000/1", SipConfigManager.CODEC_NB, "60");
 		prefs.setCodecPriority("PCMA/8000/1", SipConfigManager.CODEC_NB, "50");
 //		prefs.setCodecPriority("GSM/8000/1", SipConfigManager.CODEC_NB, "0");
@@ -465,8 +465,8 @@ public class EZCallPrepay extends BaseImplementation {
 //		prefs.setCodecPriority("AMR/8000/1", SipConfigManager.CODEC_NB, "0");
 
 		// For Wideband
-//		prefs.setCodecPriority("G729/8000/1", SipConfigManager.CODEC_WB, "0");
-//		prefs.setCodecPriority("iLBC/8000/1", SipConfigManager.CODEC_WB, "0");
+//		prefs.setCodecPriority("G729/8000/1", SipConfigManager.CODEC_WB, "100");
+		prefs.setCodecPriority("iLBC/8000/1", SipConfigManager.CODEC_WB, "90");
 		prefs.setCodecPriority("PCMU/8000/1", SipConfigManager.CODEC_WB, "60");
 		prefs.setCodecPriority("PCMA/8000/1", SipConfigManager.CODEC_WB, "50");
 //		prefs.setCodecPriority("GSM/8000/1", SipConfigManager.CODEC_WB, "0");
