@@ -654,6 +654,7 @@ ac_sdl_cflags
 SDL_CONFIG
 ac_resample_dll
 ac_no_ilbc_codec
+ac_webrtc_platform
 ac_no_speex_codec
 ac_no_g7221_codec
 ac_no_g722_codec
@@ -2491,7 +2492,7 @@ test -n "$target_alias" &&
   program_prefix=${target_alias}-
 ac_config_headers="$ac_config_headers pjlib/include/pj/compat/os_auto.h pjlib/include/pj/compat/m_auto.h pjmedia/include/pjmedia/config_auto.h pjmedia/include/pjmedia-codec/config_auto.h pjsip/include/pjsip/sip_autoconf.h"
 
-ac_config_files="$ac_config_files build.mak build/os-auto.mak build/cc-auto.mak pjlib/build/os-auto.mak pjlib-util/build/os-auto.mak pjmedia/build/os-auto.mak pjsip/build/os-auto.mak third_party/build/os-auto.mak third_party/build/portaudio/os-auto.mak"
+ac_config_files="$ac_config_files build.mak build/os-auto.mak build/cc-auto.mak pjlib/build/os-auto.mak pjlib-util/build/os-auto.mak pjmedia/build/os-auto.mak pjsip/build/os-auto.mak third_party/build/os-auto.mak third_party/build/portaudio/os-auto.mak third_party/build/webrtc/os-auto.mak third_party/build/os-auto.mak"
 
 
 
@@ -7624,7 +7625,20 @@ else
 $as_echo "Skipping Intel IPP settings (not wanted)" >&6; }
 fi
 
-
+case $target in
+ *darwin*)
+       ac_webrtc_platform=webrtc_darwinos
+       ;;
+ *mingw*)
+       ac_webrtc_platform=webrtc_win32
+       ;;
+ *linux*)
+       ac_webrtc_platform=webrtc_linux
+       ;;
+ *)
+       ac_webrtc_platform=null
+       ;;
+esac
 
 
 # Check whether --with-ssl was given.
@@ -8939,6 +8953,7 @@ do
     "pjsip/build/os-auto.mak") CONFIG_FILES="$CONFIG_FILES pjsip/build/os-auto.mak" ;;
     "third_party/build/os-auto.mak") CONFIG_FILES="$CONFIG_FILES third_party/build/os-auto.mak" ;;
     "third_party/build/portaudio/os-auto.mak") CONFIG_FILES="$CONFIG_FILES third_party/build/portaudio/os-auto.mak" ;;
+	"third_party/build/webrtc/os-auto.mak" ) CONFIG_FILES="$CONFIG_FILES third_party/build/webrtc/os-auto.mak" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

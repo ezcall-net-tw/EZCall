@@ -176,6 +176,10 @@ int ConvertToI420(VideoType src_video_type,
   // All sanity tests are conducted within LibYuv.
   int dst_height = dst_frame->Height();
   int dst_width = dst_frame->Width();
+  if(rotation == kRotate90 || rotation == kRotate270){
+    dst_height = dst_frame->Width();
+    dst_width = dst_frame->Height();
+  }
   // TODO(mikhal): When available, use actual stride value.
   int dst_stride = dst_frame->Width();
   int half_dst_width = (dst_width + 1) >> 1;

@@ -500,23 +500,30 @@ static pj_bool_t options_on_rx_request(pjsip_rx_data *rdata)
 	pjsip_msg_add_hdr(tdata->msg, h);
     }
 
-    /* Get media socket info, make sure transport is ready */
-#if DISABLED_FOR_TICKET_1185
-    if (pjsua_var.calls[0].med_tp) {
-	pjmedia_transport_info tpinfo;
-	pjmedia_sdp_session *sdp;
+    /* Build a SDP response. As media probably not started at this point, use fake sock info */
+    {
+    pjmedia_sdp_session *sdp;
+    pjmedia_sock_info sock_info;
+	pj_uint16_t port;
+	int acc_id = pjsua_acc_find_for_incoming(rdata);
 
-	pjmedia_transport_info_init(&tpinfo);
-	pjmedia_transport_get_info(pjsua_var.calls[0].med_tp, &tpinfo);
-
-	/* Add SDP body, using call0's RTP address */
-	status = pjmedia_endpt_create_sdp(pjsua_var.med_endpt, tdata->pool, 1,
-					  &tpinfo.sock_info, &sdp);
-	if (status == PJ_SUCCESS) {
-	    pjsip_create_sdp_body(tdata->pool, sdp, &tdata->msg->body);
-	}
+    pj_bzero(&sock_info, sizeof(pjmedia_sock_info));
+    /* We use local ip if able to resolve it. No bother with status here, the point is to get some IP to send. */
+    pj_gethostip(pj_AF_INET(), &sock_info.rtp_addr_name);
+    /* We use configured rtp port. It's not necessarily relevant, but just to give a port. It's inline with the fact we send hostip */
+    port = pjsua_var.acc[acc_id].cfg.rtp_cfg.port;
+    if(port <= 0){
+    	port = 4000;
     }
-#endif
+	pj_sockaddr_set_port(&sock_info.rtp_addr_name, port);
+
+	/* Add SDP body, using fake RTP address */
+	status = pjmedia_endpt_create_sdp(pjsua_var.med_endpt, tdata->pool, 1,
+				  &sock_info, &sdp);
+	if (status == PJ_SUCCESS) {
+		pjsip_create_sdp_body(tdata->pool, sdp, &tdata->msg->body);
+    }
+    }
 
     /* Send response */
     pjsip_get_response_addr(tdata->pool, rdata, &res_addr);
@@ -2027,7 +2034,7 @@ static pj_status_t create_sip_udp_sock(int af,
 			 pj_ntohs(pjsua_var.stun_srv.ipv4.sin_port);
 	status = pjstun_get_mapped_addr2(&pjsua_var.cp.factory, &stun_opt,
 					 1, &sock, &p_pub_addr->ipv4);
-	if (status != PJ_SUCCESS) {
+	if (status != PJ_SUCCESS && !pjsua_var.ua_cfg.stun_ignore_failure) {
 	    pjsua_perror(THIS_FILE, "Error contacting STUN server", status);
 	    pj_sock_close(sock);
 	    return status;

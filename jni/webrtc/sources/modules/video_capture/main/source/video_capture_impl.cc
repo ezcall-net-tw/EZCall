@@ -291,9 +291,10 @@ WebRtc_Word32 VideoCaptureImpl::IncomingFrame(
     TickTime startProcessTime = TickTime::Now();
 
     CriticalSectionScoped cs(&_callBackCs);
-
-    const WebRtc_Word32 width = frameInfo.width;
-    const WebRtc_Word32 height = frameInfo.height;
+    const WebRtc_Word32 initWidth = frameInfo.width;
+    const WebRtc_Word32 initHeight = frameInfo.height;
+    const WebRtc_Word32 width = (_rotateFrame == kRotate90 || _rotateFrame == kRotate270)? frameInfo.height : frameInfo.width;
+    const WebRtc_Word32 height = (_rotateFrame == kRotate90 || _rotateFrame == kRotate270)? frameInfo.width : frameInfo.height;
 
     if (frameInfo.codecType == kVideoCodecUnknown)
     {
@@ -330,7 +331,7 @@ WebRtc_Word32 VideoCaptureImpl::IncomingFrame(
         const int conversionResult = ConvertToI420(commonVideoType,
                                                    videoFrame,
                                                    0, 0,  // No cropping
-                                                   width, height,
+                                                   initWidth, initHeight,
                                                    videoFrameLength,
                                                    _rotateFrame,
                                                    &_captureFrame);

@@ -17,7 +17,7 @@ LOCAL_MODULE := libwebrtc_yuv
 LOCAL_MODULE_TAGS := optional
 LOCAL_CPP_EXTENSION := .cc
 LOCAL_SRC_FILES := \
-    libyuv.cc \
+    webrtc_libyuv.cc \
     scaler.cc
 
 # Flags passed to both C and C++ files.
@@ -28,7 +28,7 @@ LOCAL_CFLAGS := \
 LOCAL_C_INCLUDES := \
     $(LOCAL_PATH)/../.. \
     $(LOCAL_PATH)/../../../.. \
-    $(LOCAL_PATH)/../../../../libyuv/files/include
+    $(LOCAL_PATH)/../../../../third_party/libyuv/include
 
 
 LOCAL_SHARED_LIBRARIES := \

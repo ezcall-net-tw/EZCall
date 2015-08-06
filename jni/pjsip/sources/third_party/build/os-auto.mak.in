@@ -40,3 +40,7 @@ endif
 ifeq (@ac_pjmedia_resample@,libresample)
 DIRS += resample
 endif
+
+ifneq (@ac_no_webrtc_aec@,1)
+DIRS += webrtc
+endif

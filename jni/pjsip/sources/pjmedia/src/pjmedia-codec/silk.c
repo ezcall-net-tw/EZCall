@@ -246,7 +246,7 @@ PJ_DEF(pj_status_t) pjmedia_codec_silk_init(pjmedia_endpt *endpt)
     sp->bitrate = CALC_BITRATE(sp->max_bitrate);
     sp->ptime = FRAME_LENGTH_MS;
     sp->complexity = PJMEDIA_CODEC_SILK_DEFAULT_COMPLEXITY;
-    sp->enabled = 0;
+    sp->enabled = 1;
 
     sp = &silk_factory.silk_param[PARAM_WB];
     sp->pt = PJMEDIA_RTP_PT_SILK_WB;
@@ -264,7 +264,7 @@ PJ_DEF(pj_status_t) pjmedia_codec_silk_init(pjmedia_endpt *endpt)
     sp->bitrate = CALC_BITRATE(sp->max_bitrate);
     sp->ptime = FRAME_LENGTH_MS;
     sp->complexity = PJMEDIA_CODEC_SILK_DEFAULT_COMPLEXITY;
-    sp->enabled = 0;
+    sp->enabled = 1;
 
 
     /* Get the codec manager. */

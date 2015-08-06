@@ -15,6 +15,8 @@
 #if defined(_WIN32)
 #include "rw_lock_generic.h"
 #include "rw_lock_win.h"
+#elif defined(WEBRTC_ANDROID)
+#include "rw_lock_generic.h"
 #else
 #include "rw_lock_posix.h"
 #endif
@@ -28,6 +30,8 @@ RWLockWrapper* RWLockWrapper::CreateRWLock() {
   if (lock) {
     return lock;
   }
+  return new RWLockGeneric();
+#elif defined(WEBRTC_ANDROID)
   return new RWLockGeneric();
 #else
   return RWLockPosix::Create();

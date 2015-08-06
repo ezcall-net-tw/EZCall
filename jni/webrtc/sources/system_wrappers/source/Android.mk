@@ -20,6 +20,7 @@ LOCAL_SRC_FILES := \
     android/cpu-features.c \
     cpu_features_android.c \
     map.cc \
+    rw_lock_generic.cc \
     sort.cc \
     aligned_malloc.cc \
     atomic32_posix.cc \
