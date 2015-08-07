@@ -416,6 +416,9 @@ public class EZCallPrepay extends BaseImplementation {
 		super.setDefaultParams(prefs);
 
 		Log.d(THIS_FILE, "setDefaultParams...");
+		
+		// 參考 SipConfigManager.java 中 FRAMES_PER_PACKET_SUFFIX 說明
+		prefs.setPreferenceStringValue("codec_g729_8000_fpp", "18");
 
 		// ICE
 //		prefs.setPreferenceBooleanValue(SipConfigManager.ENABLE_ICE, false);
