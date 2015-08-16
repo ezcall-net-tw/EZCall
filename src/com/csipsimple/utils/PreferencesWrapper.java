@@ -169,10 +169,10 @@ public class PreferencesWrapper {
 		put(SipConfigManager.USE_GPRS_OUT, false);
 		put(SipConfigManager.USE_EDGE_IN, false);
 		put(SipConfigManager.USE_EDGE_OUT, false);
-        put(SipConfigManager.USE_ANYWAY_IN, false);
-        put(SipConfigManager.USE_ANYWAY_OUT, false);
-        put(SipConfigManager.USE_ROAMING_IN, true);
-        put(SipConfigManager.USE_ROAMING_OUT, true);
+        put(SipConfigManager.USE_ANYWAY_IN, true);
+        put(SipConfigManager.USE_ANYWAY_OUT, true);
+        put(SipConfigManager.USE_ROAMING_IN, false);
+        put(SipConfigManager.USE_ROAMING_OUT, false);
 		put(SipConfigManager.FORCE_NO_UPDATE, true);
         put(SipConfigManager.DISABLE_TCP_SWITCH, true);
         put(SipConfigManager.DISABLE_RPORT, false);
