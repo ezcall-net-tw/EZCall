@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tw.net.ezcall"
     android:installLocation="auto"
-    android:versionCode="150808"
+    android:versionCode="150816"
     android:versionName="1.02.03.2459" >
 
     <supports-screens
