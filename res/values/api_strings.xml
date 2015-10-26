@@ -7,7 +7,7 @@
 
 <resources>
 
-    <string name="app_name">EZCall</string>
+    <string name="app_name">CALL</string>
     <string name="permlab_useSip">Use sip</string>
     <string name="permdesc_useSip">Place SIP calls, send SIP messages</string>
     <string name="permlab_configureSip">Full access to SIP Accounts/Calls/Messages</string>

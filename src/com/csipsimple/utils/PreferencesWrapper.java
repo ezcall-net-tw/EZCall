@@ -90,7 +90,7 @@ public class PreferencesWrapper {
         put(SipConfigManager.TSX_TD_TIMEOUT, "-1");
 		
 		put(SipConfigManager.SND_AUTO_CLOSE_TIME, "1");
-		put(SipConfigManager.ECHO_CANCELLATION_TAIL, "130");
+		put(SipConfigManager.ECHO_CANCELLATION_TAIL, "200");
 		put(SipConfigManager.ECHO_MODE, "3"); /* WEBRTC */
 		put(SipConfigManager.SND_MEDIA_QUALITY, "4");
 		put(SipConfigManager.SND_CLOCK_RATE, "16000");
@@ -98,7 +98,7 @@ public class PreferencesWrapper {
 		put(SipConfigManager.SIP_AUDIO_MODE, "0");
 		put(SipConfigManager.MICRO_SOURCE, "1");
 		put(SipConfigManager.THREAD_COUNT, "0");
-        put(SipConfigManager.MEDIA_THREAD_COUNT, "2");
+        put(SipConfigManager.MEDIA_THREAD_COUNT, "1");
 		put(SipConfigManager.HEADSET_ACTION, "0");
 		put(SipConfigManager.AUDIO_IMPLEMENTATION, "0");
 		put(SipConfigManager.H264_PROFILE, "66");
@@ -119,7 +119,7 @@ public class PreferencesWrapper {
 		put(SipConfigManager.TLS_METHOD, "0");
 		put(SipConfigManager.NETWORK_ROUTES_POLLING, "0");
 		
-		put(SipConfigManager.DSCP_VAL, "20");
+		put(SipConfigManager.DSCP_VAL, "24");
         put(SipConfigManager.DSCP_RTP_VAL, "46");
 		put(SipConfigManager.DTMF_MODE, "0");
         put(SipConfigManager.DTMF_PAUSE_TIME, "300");
@@ -157,19 +157,19 @@ public class PreferencesWrapper {
 		put(SipConfigManager.ENABLE_TURN, false);
 		put(SipConfigManager.ENABLE_STUN, false);
         put(SipConfigManager.ENABLE_STUN2, false);
-		put(SipConfigManager.ENABLE_QOS, true);
+		put(SipConfigManager.ENABLE_QOS, false);
 		put(SipConfigManager.USE_COMPACT_FORM, false);
 		put(SipConfigManager.USE_WIFI_IN, true);
 		put(SipConfigManager.USE_WIFI_OUT, true);
 		put(SipConfigManager.USE_OTHER_IN, true);
 		put(SipConfigManager.USE_OTHER_OUT, true);
-		put(SipConfigManager.USE_3G_IN, true);
-		put(SipConfigManager.USE_3G_OUT, true);
+		put(SipConfigManager.USE_3G_IN, false);
+		put(SipConfigManager.USE_3G_OUT, false);
 		put(SipConfigManager.USE_GPRS_IN, false);
 		put(SipConfigManager.USE_GPRS_OUT, false);
 		put(SipConfigManager.USE_EDGE_IN, false);
 		put(SipConfigManager.USE_EDGE_OUT, false);
-        put(SipConfigManager.USE_ANYWAY_IN, false);
+        put(SipConfigManager.USE_ANYWAY_IN, true);
         put(SipConfigManager.USE_ANYWAY_OUT, true);
         put(SipConfigManager.USE_ROAMING_IN, false);
         put(SipConfigManager.USE_ROAMING_OUT, false);
@@ -195,7 +195,7 @@ public class PreferencesWrapper {
 		put(SipConfigManager.AUTO_CONNECT_BLUETOOTH, false);
         put(SipConfigManager.AUTO_CONNECT_SPEAKER, false);
         put(SipConfigManager.AUTO_DETECT_SPEAKER, false);
-		put(SipConfigManager.CODECS_PER_BANDWIDTH, false);
+		put(SipConfigManager.CODECS_PER_BANDWIDTH, true);
 		put(SipConfigManager.RESTART_AUDIO_ON_ROUTING_CHANGES, true);
         put(SipConfigManager.SETUP_AUDIO_BEFORE_INIT, true);
 		

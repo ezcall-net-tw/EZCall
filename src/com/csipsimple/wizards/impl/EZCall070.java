@@ -251,6 +251,27 @@ public class EZCall070 extends BaseImplementation {
 		super.setDefaultParams(prefs);
 
 		Log.d(THIS_FILE, "setDefaultParams...");
+		
+		// 參考 SipConfigManager.java 中 FRAMES_PER_PACKET_SUFFIX 說明
+		prefs.setPreferenceStringValue("codec_g729_8000_fpp", "18");
+		
+		//DSCP_VAL
+		prefs.setPreferenceStringValue(SipConfigManager.DSCP_VAL, "20");
+		
+		//MEDIA_THREAD_COUNT
+		prefs.setPreferenceStringValue(SipConfigManager.MEDIA_THREAD_COUNT, "2");
+		
+		//ECHO_CANCELLATION_TAIL
+		prefs.setPreferenceStringValue(SipConfigManager.ECHO_CANCELLATION_TAIL, "130");
+		
+		//Frame PTime
+		prefs.setPreferenceStringValue(SipConfigManager.SND_PTIME, "20");
+		
+		//QOS
+		prefs.setPreferenceBooleanValue(SipConfigManager.ENABLE_QOS, true);
+		
+		//Use WebRTC implementation
+		prefs.setPreferenceBooleanValue(SipConfigManager.USE_WEBRTC_HACK, true);
 
 		//ICE//
 //		prefs.setPreferenceBooleanValue(SipConfigManager.ENABLE_ICE, true);		
